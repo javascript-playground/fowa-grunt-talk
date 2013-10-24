@@ -36,11 +36,6 @@ module.exports = function(grunt) {
       target1: ['jasmine', 'jshint'],
     }
   });
-  grunt.loadNpmTasks("grunt-contrib-uglify");
-  grunt.loadNpmTasks("grunt-contrib-jshint");
-  grunt.loadNpmTasks("grunt-contrib-watch");
-  grunt.loadNpmTasks("grunt-contrib-jasmine");
-  grunt.loadNpmTasks("grunt-notify");
-  grunt.loadNpmTasks('grunt-concurrent');
+  require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
   grunt.registerTask("default", ["concurrent:target1", "uglify:withBanner"]);
 };

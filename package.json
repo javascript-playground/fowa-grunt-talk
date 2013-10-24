@@ -8,6 +8,7 @@
     "grunt-contrib-watch": "~0.5.3",
     "grunt-notify": "~0.2.13",
     "grunt-concurrent": "~0.4.1",
-    "grunt-contrib-jasmine": "~0.5.2"
+    "grunt-contrib-jasmine": "~0.5.2",
+    "matchdep": "~0.3.0"
   }
 }
