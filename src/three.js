@@ -1,1 +1,1 @@
-console.log("file 3");
+var three = 3;

@@ -18,14 +18,27 @@ module.exports = function(grunt) {
     jshint: {
       all: ['Gruntfile.js', 'src/*.js']
     },
+    jasmine: {
+      test: {
+        src: 'src/*.js',
+        options: {
+          specs: 'spec/*.js'
+        }
+      }
+    },
     watch: {
       files: ['src/*.js', 'Gruntfile.js'],
-      tasks: ['jshint']
+      tasks: ['default']
+    },
+    concurrent: {
+      target1: ['jasmine', 'jshint'],
     }
   });
   grunt.loadNpmTasks("grunt-contrib-uglify");
   grunt.loadNpmTasks("grunt-contrib-jshint");
   grunt.loadNpmTasks("grunt-contrib-watch");
+  grunt.loadNpmTasks("grunt-contrib-jasmine");
   grunt.loadNpmTasks("grunt-notify");
-  grunt.registerTask("default", ["jshint", "uglify:withBanner"]);
+  grunt.loadNpmTasks('grunt-concurrent');
+  grunt.registerTask("default", ["concurrent:target1", "uglify:withBanner"]);
 };

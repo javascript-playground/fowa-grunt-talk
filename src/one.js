@@ -1,1 +1,3 @@
-console.log("file 1");
+(function() {
+  return "file one";
+})();

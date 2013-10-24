@@ -1,1 +1,1 @@
-/*Hello World*/console.log("file 1"),console.log("file 3"),console.log("file 2");
+/*Hello World*/!function(){return"file one"}();var three=3;window.two=function(){return 2};
