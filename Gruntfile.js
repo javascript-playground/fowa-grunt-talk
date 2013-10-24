@@ -1,9 +1,11 @@
 module.exports = function(grunt) {
   grunt.initConfig({
+    srcFiles: "src/*.js",
+    outFile: "dist/out.js",
     uglify: {
       minify: {
         files: {
-          'dist/out.js': ['src/*.js']
+          '<%= outFile %>': ['<%= srcFiles %>']
         }
       },
       withBanner: {
@@ -11,23 +13,23 @@ module.exports = function(grunt) {
           banner: "/*Hello World*/"
         },
         files: {
-          'dist/out.js': ['src/*.js']
+          '<%= outFile %>': ['<%= srcFiles %>']
         }
       }
     },
     jshint: {
-      all: ['Gruntfile.js', 'src/*.js']
+      all: ['Gruntfile.js', '<%= srcFiles %>']
     },
     jasmine: {
       test: {
-        src: 'src/*.js',
+        src: '<%= srcFiles %>',
         options: {
           specs: 'spec/*.js'
         }
       }
     },
     watch: {
-      files: ['src/*.js', 'Gruntfile.js'],
+      files: ['<%= srcFiles %>', 'Gruntfile.js'],
       tasks: ['default']
     },
     concurrent: {
