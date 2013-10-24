@@ -1,0 +1,1 @@
+/*Hello World*/console.log("file 1"),console.log("file 3"),console.log("file 2");
